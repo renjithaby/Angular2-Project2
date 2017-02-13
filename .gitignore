@@ -1,16 +1,16 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/Project/dist
-/Project/tmp
+/ShoppingCart/dist
+/ShoppingCart/tmp
 
 # dependencies
-/Project/node_modules
-/Project/bower_components
+/ShoppingCart/node_modules
+/ShoppingCart/bower_components
 
 # IDEs and editors
-/Project/.idea
-/Project/.vscode
+/ShoppingCart/.idea
+/ShoppingCart/.vscode
 .project
 .classpath
 .c9/
@@ -19,17 +19,17 @@
 .editorconfig
 
 # misc
-/Project/.sass-cache
-/Project/connect.lock
-/Project/coverage/*
-/Project/libpeerconnection.log
+/ShoppingCart/.sass-cache
+/ShoppingCart/connect.lock
+/ShoppingCart/coverage/*
+/ShoppingCart/libpeerconnection.log
 npm-debug.log
 testem.log
 /typings
 
 # e2e
-/Project/e2e/*.js
-/Project/e2e/*.map
+/ShoppingCart/e2e/*.js
+/ShoppingCart/e2e/*.map
 
 #System Files
 .DS_Store
