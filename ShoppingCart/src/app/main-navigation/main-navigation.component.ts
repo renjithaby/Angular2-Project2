@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-main-navigation',
   templateUrl: './main-navigation.component.html',
@@ -9,47 +8,52 @@ export class MainNavigationComponent implements OnInit {
 
   constructor() { }
 
-   private showFruitsSubMenu = false;
-    private showGrocerriesSubMenu =false;
-    private showMenu = false;
-
-    private data :any ;
-    private fruits :any ;
     private _menuList;
+
+
   ngOnInit() {
 
       this._menuList =[ {
           id:1,
           name:"FreshFruits",
-          type:"parent",
+          type:"parentNode",
           childs:[
               {
                   id:2,
-                  name:"All Fruits",
-                  type:"child"
+                  name:"AllFruits",
+                  type:"endNode"
               },
               {
                   id:3,
                   name:"Apples",
-                  type:"child"
+                  type:"endNode"
               },
               {
                   id:4,
                   name:"Banana",
-                  type:"child"
+                  type:"endNode"
               },
               {
                   id:5,
                   name:"Grapes",
-                  type:"child"
+                  type:"endNode"
               }
 
-          ]
-
-      }]
+          ]},
+          {
+              id: 6,
+              name: "MySavedList",
+              type: "endNode"
+          }]
   }
 
-    menuClick(event) {
+
+  onMenuClick(event){
+    console.log(event.target.id);
+    console.log(event.target);
+  }
+
+  /*  menuClick(event) {
         var id = "";
         id = event.target.parentNode.id !== "" ? event.target.parentNode.id : event.target.parentNode.parentNode.id;
         switch (id) {
@@ -61,23 +65,11 @@ export class MainNavigationComponent implements OnInit {
                 break;
 
         }
-    }
+    }*/
 
-    getData(){
 
-        this.data = [
-        {
-            item :"Home"
-        },
-        {
-            item :"Grocerries",
-            visible:false,
-            subMenu :[
-            {item :"Fruits"},
-            {item :"vegitables"}
-            ]
-        }
-    ]}
+
+
 
 
 }

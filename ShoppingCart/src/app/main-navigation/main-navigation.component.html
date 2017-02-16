@@ -8,22 +8,22 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand">My Shop</a>
+            <a  routerLink="Home" routerLinkActive="active" class="navbar-brand">My Shop </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li  *ngFor= 'let menu of _menuList' class="dropdown">
-                    <a  *ngIf ='menu.type =="parent"'href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{menu.name}} <span class="caret"></span></a>
-                    <a  *ngIf ='menu.type =="child"' href ="#"> {{menu.name}}</a>
-                    <ul *ngIf = 'menu.type=="parent"' class="dropdown-menu">
+                    <a id = "{{menu.name}}" (click) = "onMenuClick($event)" *ngIf ='menu.type =="parentNode"'routerLink="{{menu.name}}" routerLinkActive="active" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{menu.name}} <span class="caret"></span></a>
+                    <a id = "{{menu.name}}" (click) = "onMenuClick($event)" *ngIf ='menu.type =="endNode"' routerLink="{{menu.name}}" routerLinkActive="active"> {{menu.name}}</a>
+                    <ul *ngIf = 'menu.type=="parentNode"' class="dropdown-menu">
                         <li  *ngFor = 'let item of menu.childs'>
-                            <a (click) = "onMenuClick()">{{item.name}}</a>
+                            <a id = "{{item.name}}" (click) = "onMenuClick($event)" routerLink="{{menu.name}}/{{item.id}}" routerLinkActive="active">{{item.name}}</a>
                         </li>
                     </ul>
                 </li>
-                <li > <a> My Saved List</a></li>
+                <!-- <li > <a> My Saved List</a></li> -->
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

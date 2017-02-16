@@ -1,6 +1,9 @@
 <app-main-navigation></app-main-navigation>
-
+<router-outlet></router-outlet>
 <h1>
   {{title}}
 </h1>
-<span class="label label-primary">Primary</span>
+
+<app-quantity-widget [_quantity]= "25" [_price] ="100" > </app-quantity-widget>
+
+
