@@ -1,0 +1,39 @@
+/*.dropdown-menu{
+
+    display :block;
+    padding :0;
+    width:100%;
+}
+.dropdown-menu .divider{
+    margin :0;
+}
+.glyphicon {
+    float : right;
+    top:4px;
+}
+.collapse1 {
+    display : block;
+}
+.dropdown-submenu>li>a{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none;
+
+}
+
+ul.dropdown-submenu{
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    list-style: none;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    -webkit-transition:height 12s; /* For Safari 3.1 to 6.0
+    transition: height 12s;
+}*/
