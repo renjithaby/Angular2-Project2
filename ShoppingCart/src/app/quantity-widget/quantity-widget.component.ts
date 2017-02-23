@@ -12,7 +12,7 @@ export class QuantityWidgetComponent implements OnInit {
   ngOnInit() {
   }
 
-   @Input()  _quantity =4;
+   @Input()  _quantity = 4;
    @Input()  _price = 0;
     @Output() add = new EventEmitter();
      @Output() delete = new EventEmitter();

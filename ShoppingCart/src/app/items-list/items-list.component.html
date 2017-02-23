@@ -1,4 +1,4 @@
 <p>
   items-list works!
 </p>
-<app-shopping-item> </app-shopping-item>
+ <app-shopping-item [_item] = "i" *ngFor = "let i of itemsList"> </app-shopping-item>

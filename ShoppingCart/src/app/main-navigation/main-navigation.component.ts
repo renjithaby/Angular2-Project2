@@ -30,7 +30,7 @@ export class MainNavigationComponent implements OnInit {
               },
               {
                   id:4,
-                  name:"Banana",
+                  name:"Bananas",
                   type:"endNode"
               },
               {
