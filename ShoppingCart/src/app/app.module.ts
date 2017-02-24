@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import {Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
+import {ItemsService} from './items.service';
 import { MainNavigationComponent } from './main-navigation/main-navigation.component';
 import { HomeComponent } from './home/home.component';
 import { ItemsListComponent } from './items-list/items-list.component';
@@ -47,7 +48,7 @@ const routes :Routes = <Routes>[
     HttpModule,
     RouterModule.forRoot(routes,{useHash : true})
   ],
-  providers: [],
+  providers: [ItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

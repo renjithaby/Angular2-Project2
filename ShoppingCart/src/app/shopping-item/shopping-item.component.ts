@@ -7,12 +7,11 @@ import {ItemsService} from '../items.service';
   templateUrl: './shopping-item.component.html',
   styleUrls: ['./shopping-item.component.css'],
 
-  directives:[QuantityWidgetComponent],
-  providers : [ItemsService]
+  directives:[QuantityWidgetComponent]
 })
 export class ShoppingItemComponent implements OnInit {
 
-  constructor(private itemsService:ItemsService) { }
+  constructor(private itemsService: ItemsService) { }
 
   ngOnInit() {
     console.log("this._item.................................");

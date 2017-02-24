@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemsService} from '../items.service';
 @Component({
   selector: 'app-main-navigation',
   templateUrl: './main-navigation.component.html',
@@ -6,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainNavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private itemsService:ItemsService) { }
 
     private _menuList;
+    private _totalBasketItems:number;
 
 
   ngOnInit() {
+     this.itemsService.getTotalBasketItems().subscribe(
+          value => {
+            this._totalBasketItems = value;
+          }
+      );
 
       this._menuList =[ {
           id:1,

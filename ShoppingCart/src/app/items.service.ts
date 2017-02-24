@@ -1,11 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 import {Item} from './Item';
+import 'rxjs/Rx';
+import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
+import 'rxjs/add/operator/share';
 @Injectable()
 export class ItemsService {
 
 private allItemsList :Item[];
 private myBasketList : Item[] = [];
-  constructor() { }
+private totalItems:Observable<number>;
+private totalItemsObserver :Observer<any>;
+private totalBasketItems:number;
+private update = new EventEmitter();
+  constructor() {
+    this.totalBasketItems = 0;
+  }
+
+  totalItems = new Observable(observer => this.totalItemsObserver = observer).share();
 
   allItemsList = [
             {
@@ -83,15 +95,38 @@ private myBasketList : Item[] = [];
     return this.myBasketList;
   }
 
-  addToMyBasket(item:Item){
-    this.myBasketList.push(item);
-    console.log(this.myBasketList.length);
-     console.log(this.myBasketList);
+  getTotalBasketItems():Observable{
+    return this.totalItems;
   }
 
+  addToMyBasket(item:Item){
+      this.totalBasketItems += 1;
+      this.totalItemsObserver.next(this.totalBasketItems);
+      let itemInList = false;
+      for (let i=0;i<this.myBasketList.length;i++){
+        if(item.id === this.myBasketList[i].id){
+          itemInList = true;
+        }
+      }
+
+      if(!itemInList)
+      this.myBasketList.push(item);
+  }
+
+
+
    removeFromMyBasket(item:Item){
-      let index = this.myBasketList.indexOf(item);
-      this.myBasketList.splice(index,1);
+      this.totalBasketItems -= 1;
+      this.totalItemsObserver.next(this.totalBasketItems);
+      for (let i=0;i<this.myBasketList.length;i++){
+        if(item.id === this.myBasketList[i].id){
+          if(this.myBasketList[i].quantity < 1) {
+            this.myBasketList.splice(i, 1);
+            break;
+          }
+
+        }
+      }
   }
 
 }

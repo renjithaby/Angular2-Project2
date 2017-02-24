@@ -6,18 +6,18 @@ import { ShoppingItemComponent } from '../shopping-item/shopping-item.component'
 import {Item} from '../Item';
 import {ItemsService} from '../items.service';
 
+
 @Component({
   selector: 'app-items-list',
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.css'],
-  directives:[ShoppingItemComponent],
-  providers : [ItemsService]
+  directives:[ShoppingItemComponent]
 })
 export class ItemsListComponent implements OnInit {
   private  allItemsList :Item[] ;
   private  itemsList :Item[] ;
   private myItem :Item;
-  constructor(private route: ActivatedRoute,private router: Router, private itemsService:ItemsService) {
+  constructor(private route: ActivatedRoute,private router: Router, private itemsService: ItemsService) {
 
   }
 
