@@ -34,11 +34,8 @@ export class ItemsListComponent implements OnInit {
 
 this.allItemsList = this.itemsService.getAllItems();
 
-console.log("---------------------------------------------------------------");
-console.log(this.itemsList);
   this.route.params.subscribe(params => {
         this.itemsList = [];
-        console.log(params['type']);
         let itemType = params['type'];
         if(itemType != "AllFruits") {
             for (let i = 0; i < this.allItemsList.length; i++) {

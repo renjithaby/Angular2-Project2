@@ -9,6 +9,7 @@ export class ItemsService {
 
 private allItemsList :Item[];
 private myBasketList : Item[] = [];
+private mySavedList : Item[] = [];
 private totalItems:Observable<number>;
 private totalItemsObserver :Observer<any>;
 private totalBasketItems:number;
@@ -95,6 +96,10 @@ private update = new EventEmitter();
     return this.myBasketList;
   }
 
+  getMySavedList(): Item[]{
+    return this.mySavedList;
+  }
+
   getTotalBasketItems():Observable{
     return this.totalItems;
   }
@@ -124,9 +129,22 @@ private update = new EventEmitter();
             this.myBasketList.splice(i, 1);
             break;
           }
-
         }
       }
+  }
+
+
+  addItemtoSavedList(item:Item){
+    let itemInList = false;
+    for(let i =0; i < this.mySavedList.length; i++){
+        if(item.id === this.mySavedList[i].id) {
+            itemInList = true;
+        }
+    }
+    if(!itemInList){
+        this.mySavedList.push(item);
+    }
+
   }
 
 }

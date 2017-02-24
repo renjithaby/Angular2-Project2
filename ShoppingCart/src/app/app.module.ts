@@ -13,7 +13,7 @@ import { SavedListComponent } from './saved-list/saved-list.component';
 import { ShoppingItemComponent } from './shopping-item/shopping-item.component';
 import { QuantityWidgetComponent } from './quantity-widget/quantity-widget.component';
 import { MyBasketComponent } from './my-basket/my-basket.component';
-/*import { SaveListIconComponent } from './save-list-icon/save-list-icon.component';*/
+import { SaveListIconComponent } from './save-list-icon/save-list-icon.component';
 
 const routes :Routes = <Routes>[
 
@@ -40,7 +40,7 @@ const routes :Routes = <Routes>[
     ShoppingItemComponent,
     QuantityWidgetComponent,
     MyBasketComponent,
-    //SaveListIconComponent
+    SaveListIconComponent
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@
        {{_item.price/100 | currency:'GBP':true:'1.2-2'}}
     </div>
   </div>
- <!-- <save-list-icon (click) ="saveItem()">  </save-list-icon> -->
+  <app-save-list-icon (click) ="saveItem()">  </app-save-list-icon>
   <app-quantity-widget [_quantity] =  "_item.quantity" (add) = "addItem($event)"  (delete) = "deleteItem($event)"> </app-quantity-widget>
 
 </div>
